@@ -1,8 +1,8 @@
+from typing import Optional
+
 from window import Window
 from point import Point
 from line import Line
-
-from typing import Optional
 
 class Cell:
     def __init__(self, window: Optional[Window] = None) -> None:
@@ -15,6 +15,8 @@ class Cell:
         self.__x2 = -1
         self.__y2 = -1
         self.__win = window
+
+        self.visited = False
 
     def draw(self, x1: float, y1: float, x2: float, y2: float) -> None:
         if self.__win is None:

@@ -1,5 +1,6 @@
-from point import Point
 from tkinter import Canvas
+
+from point import Point
 
 class Line:
     def __init__(self, p1: Point, p2: Point) -> None:
