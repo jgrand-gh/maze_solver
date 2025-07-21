@@ -29,12 +29,23 @@ class Cell:
 
         if self.has_top_wall:
             self.__win.draw_line(Line(top_left, top_right))
+        else:
+            self.__win.draw_line(Line(top_left, top_right), "white")
+
         if self.has_left_wall:
             self.__win.draw_line(Line(top_left, bottom_left))
+        else:
+            self.__win.draw_line(Line(top_left, bottom_left), "white")
+
         if self.has_right_wall:
             self.__win.draw_line(Line(top_right, bottom_right))
+        else:
+            self.__win.draw_line(Line(top_right, bottom_right), "white")
+
         if self.has_bottom_wall:
             self.__win.draw_line(Line(bottom_left, bottom_right))
+        else:
+            self.__win.draw_line(Line(bottom_left, bottom_right), "white")
 
     def draw_move(self, to_cell: "Cell", undo: bool=False) -> None:
         fill_color = "gray"
