@@ -1,9 +1,11 @@
-from line import Line
-from point import Point
 from window import Window
+from point import Point
+from line import Line
+
+from typing import Optional
 
 class Cell:
-    def __init__(self, window: Window) -> None:
+    def __init__(self, window: Optional[Window] = None) -> None:
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -15,6 +17,9 @@ class Cell:
         self.__win = window
 
     def draw(self, x1: float, y1: float, x2: float, y2: float) -> None:
+        if self.__win is None:
+            return
+        
         self.__x1, self.__y1, self.__x2, self.__y2 = x1, y1, x2, y2
 
         top_left = Point(x1, y1)
@@ -38,6 +43,9 @@ class Cell:
 
         source = self.get_center()
         destination = to_cell.get_center()
+        
+        if self.__win is None:
+            return
         self.__win.draw_line(Line(source, destination), fill_color)
 
     def get_center(self) -> Point:
