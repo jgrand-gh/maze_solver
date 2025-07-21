@@ -50,9 +50,9 @@ class Cell:
             self.__win.draw_line(Line(bottom_left, bottom_right), "white")
 
     def draw_move(self, to_cell: "Cell", undo: bool=False) -> None:
-        fill_color = "gray"
+        fill_color = "red"
         if not undo:
-            fill_color = "red"
+            fill_color = "green"
 
         source = self.get_center()
         destination = to_cell.get_center()

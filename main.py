@@ -16,7 +16,11 @@ if __name__ == "__main__":
                 num_cols=num_cols, num_rows=num_rows,
                 cell_size_x=cell_size_x,
                 cell_size_y=cell_size_y,
-                window=window,
-                seed=10)
+                window=window)
+    
+    if maze.solve():
+        print("yay we did it - 2ez")
+    else:
+        print("game over - NEVER solveable")
 
     window.wait_for_close()
