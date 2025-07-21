@@ -1,5 +1,6 @@
-from window import Line, Point, Window
-
+from line import Line
+from point import Point
+from window import Window
 
 class Cell:
     def __init__(self, window: Window) -> None:
@@ -13,7 +14,7 @@ class Cell:
         self.__y2 = -1
         self.__win = window
 
-    def draw(self, x1: float, y1: float, x2: float, y2: float):
+    def draw(self, x1: float, y1: float, x2: float, y2: float) -> None:
         self.__x1, self.__y1, self.__x2, self.__y2 = x1, y1, x2, y2
 
         top_left = Point(x1, y1)
@@ -30,7 +31,7 @@ class Cell:
         if self.has_bottom_wall:
             self.__win.draw_line(Line(bottom_left, bottom_right))
 
-    def draw_move(self, to_cell: "Cell", undo=False):
+    def draw_move(self, to_cell: "Cell", undo: bool=False) -> None:
         fill_color = "gray"
         if not undo:
             fill_color = "red"
@@ -39,7 +40,7 @@ class Cell:
         destination = to_cell.get_center()
         self.__win.draw_line(Line(source, destination), fill_color)
 
-    def get_center(self):
+    def get_center(self) -> Point:
         center_x = (self.__x1 + self.__x2) / 2
         center_y = (self.__y1 + self.__y2) / 2
         return Point(center_x, center_y)
